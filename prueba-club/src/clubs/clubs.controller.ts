@@ -1,42 +1,32 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Post, Body, Patch, Param, Get } from '@nestjs/common';
 import { CreateClubDto } from './dto/create-club.dto';
-import { UpdateClubDto } from './dto/update-club.dto';
+import { UpdateBudgetClubDto } from './dto/update-budget-club.dto';
 import { ClubsService } from './clubs.service';
 
 @Controller('clubs')
 export class ClubsController {
   constructor(private readonly clubsService: ClubsService) {}
 
-  @Post()
-  create(@Body() createClubDto: CreateClubDto) {
-    return this.clubsService.create(createClubDto);
-  }
-
   @Get()
   findAll() {
     return this.clubsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clubsService.findOne(+id);
+  @Post()
+  create(@Body() createClubDto: CreateClubDto) {
+    return this.clubsService.create(createClubDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClubDto: UpdateClubDto) {
-    return this.clubsService.update(+id, updateClubDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateBudgetClubDto: UpdateBudgetClubDto,
+  ) {
+    return this.clubsService.updateBudget(+id, updateBudgetClubDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.clubsService.remove(+id);
+  @Get(':id')
+  costesTotales(@Param('id') id: string) {
+    return this.clubsService.getExpensesClub(+id);
   }
 }

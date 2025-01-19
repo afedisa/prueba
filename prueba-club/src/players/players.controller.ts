@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PlayersService } from './players.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
-import { UpdatePlayerDto } from './dto/update-player.dto';
+import { UpdateStartPlayerDto } from './dto/update-start-player.dto';
 
 @Controller('players')
 export class PlayersController {
@@ -12,23 +20,34 @@ export class PlayersController {
     return this.playersService.create(createPlayerDto);
   }
 
-  @Get()
-  findAll() {
-    return this.playersService.findAll();
+  @Get(':clubId/:field/:value')
+  findAllBy(
+    @Param('clubId') id: number,
+    @Param('field') field: string,
+    @Param('value') value: string,
+  ) {
+    return this.playersService.findAllByProperty(+id, field, value);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.playersService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePlayerDto: UpdatePlayerDto) {
-    return this.playersService.update(+id, updatePlayerDto);
+  @Patch(':id/start')
+  updateStart(
+    @Param('id') id: number,
+    @Body() updateStartPlayerDto: UpdateStartPlayerDto,
+  ) {
+    return this.playersService.updateStart(+id, updateStartPlayerDto);
+  }
+  @Patch(':id/end')
+  updateEnd(@Param('id') id: number) {
+    return this.playersService.updateEnd(+id);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.playersService.remove(+id);
   }
 }
