@@ -5,13 +5,17 @@ import { ClubEntity } from 'src/clubs/entities/club.entity';
 import { CreatePlayerDto } from './create-player.dto';
 
 export class UpdateStartPlayerDto extends PartialType(CreatePlayerDto) {
-  @ApiProperty({ description: 'id del club' })
+  @ApiProperty({ description: 'id del club',
+    example: 1,
+    required: true,
+   })
   @IsNotEmpty({ message: 'Introduzca un id del club' })
   @IsInt({ message: 'Introduzca un ide de club válido' })
   club: ClubEntity;
 
   @ApiProperty({
     description: 'Salario del jugador',
+    example: 1000000,
     required: true,
   })
   @IsInt()

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "946aa322-ddf3-4d3e-8931-5e2a299263e1",
-		"name": "API docs",
+		"_postman_id": "bdc28b33-44ba-4c29-a9e1-ed1276370eab",
+		"name": "Prueba Clubs",
 		"description": "Swagger API Documention",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1649650"
@@ -17,7 +17,7 @@
 							"name": "{id}",
 							"item": [
 								{
-									"name": "Clubs Controller update",
+									"name": "Actualizar presupuesto de un club",
 									"request": {
 										"method": "PATCH",
 										"header": [
@@ -50,10 +50,11 @@
 												{
 													"key": "id",
 													"value": "<string>",
-													"description": "(Required) "
+													"description": "(Required) El ID único del club"
 												}
 											]
-										}
+										},
+										"description": "Este endpoint actualiza el presupuesto de un club."
 									},
 									"response": [
 										{
@@ -101,67 +102,11 @@
 											"body": ""
 										}
 									]
-								},
-								{
-									"name": "Clubs Controller costes Totales",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/clubs/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"clubs",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "<string>",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"name": "Untitled Response",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{baseUrl}}/api/clubs/:id",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"clubs",
-														":id"
-													],
-													"variable": [
-														{
-															"key": "id"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "text",
-											"header": [],
-											"cookie": [],
-											"body": ""
-										}
-									]
 								}
 							]
 						},
 						{
-							"name": "Clubs Controller find All",
+							"name": "Obtener todos los clubes",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -174,7 +119,8 @@
 										"api",
 										"clubs"
 									]
-								}
+								},
+								"description": "Este endpoint devuelve una lista con todos los clubes registrados en el sistema."
 							},
 							"response": [
 								{
@@ -203,7 +149,7 @@
 							]
 						},
 						{
-							"name": "Clubs Controller create",
+							"name": "Crear un nuevo club",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -231,7 +177,8 @@
 										"api",
 										"clubs"
 									]
-								}
+								},
+								"description": "Este endpoint crea un nuevo club en el sistema."
 							},
 							"response": [
 								{
@@ -289,7 +236,7 @@
 											"name": "{value}",
 											"item": [
 												{
-													"name": "Players Controller find All By",
+													"name": "Buscar jugadores por campo",
 													"request": {
 														"method": "GET",
 														"header": [],
@@ -309,20 +256,21 @@
 																{
 																	"key": "clubId",
 																	"value": "<number>",
-																	"description": "(Required) "
+																	"description": "(Required) El ID único del club"
 																},
 																{
 																	"key": "field",
 																	"value": "<string>",
-																	"description": "(Required) "
+																	"description": "(Required) Campo sobre el que se quiere hacer la búsqueda"
 																},
 																{
 																	"key": "value",
 																	"value": "<string>",
-																	"description": "(Required) "
+																	"description": "(Required) El valor que se quiere buscar"
 																}
 															]
-														}
+														},
+														"description": "Este endpoint busca jugadores en un club, por un campo específico."
 													},
 													"response": [
 														{
@@ -377,7 +325,7 @@
 									"name": "start",
 									"item": [
 										{
-											"name": "Players Controller update Start",
+											"name": "Dar de alta a un jugador",
 											"request": {
 												"method": "PATCH",
 												"header": [
@@ -411,10 +359,11 @@
 														{
 															"key": "id",
 															"value": "<number>",
-															"description": "(Required) "
+															"description": "(Required) El ID único del jugador"
 														}
 													]
-												}
+												},
+												"description": "Este endpoint da de alta a un jugador."
 											},
 											"response": [
 												{
@@ -470,7 +419,7 @@
 									"name": "end",
 									"item": [
 										{
-											"name": "Players Controller update End",
+											"name": "Dar de baja a un jugador",
 											"request": {
 												"method": "PATCH",
 												"header": [],
@@ -489,10 +438,11 @@
 														{
 															"key": "id",
 															"value": "<number>",
-															"description": "(Required) "
+															"description": "(Required) El ID único del jugador"
 														}
 													]
-												}
+												},
+												"description": "Este endpoint da de baja a un jugador."
 											},
 											"response": [
 												{
@@ -530,7 +480,7 @@
 									]
 								},
 								{
-									"name": "Players Controller find One",
+									"name": "Obtener un jugador",
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -548,10 +498,11 @@
 												{
 													"key": "id",
 													"value": "<number>",
-													"description": "(Required) "
+													"description": "(Required) El ID único del jugador"
 												}
 											]
-										}
+										},
+										"description": "Este endpoint devuelve la información de un jugador en el sistema."
 									},
 									"response": [
 										{
@@ -586,7 +537,7 @@
 									]
 								},
 								{
-									"name": "Players Controller remove",
+									"name": "Eliminar un jugador",
 									"request": {
 										"method": "DELETE",
 										"header": [],
@@ -604,10 +555,11 @@
 												{
 													"key": "id",
 													"value": "<number>",
-													"description": "(Required) "
+													"description": "(Required) El ID único del jugador"
 												}
 											]
-										}
+										},
+										"description": "Este endpoint elimina un jugador del sistema."
 									},
 									"response": [
 										{
@@ -644,7 +596,7 @@
 							]
 						},
 						{
-							"name": "Players Controller create",
+							"name": "Crear un nuevo jugador",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -672,7 +624,8 @@
 										"api",
 										"players"
 									]
-								}
+								},
+								"description": "Este endpoint crea un nuevo jugador en el sistema."
 							},
 							"response": [
 								{
@@ -727,7 +680,7 @@
 									"name": "start",
 									"item": [
 										{
-											"name": "Trainers Controller update Start",
+											"name": "Dar de alta a un entrenador",
 											"request": {
 												"method": "PATCH",
 												"header": [
@@ -761,10 +714,11 @@
 														{
 															"key": "id",
 															"value": "<number>",
-															"description": "(Required) "
+															"description": "(Required) El ID único del entrenador"
 														}
 													]
-												}
+												},
+												"description": "Este endpoint da de alta a un entrenador."
 											},
 											"response": [
 												{
@@ -820,7 +774,7 @@
 									"name": "end",
 									"item": [
 										{
-											"name": "Trainers Controller update End",
+											"name": "Dar de baja a un entrenador",
 											"request": {
 												"method": "PATCH",
 												"header": [],
@@ -839,10 +793,11 @@
 														{
 															"key": "id",
 															"value": "<number>",
-															"description": "(Required) "
+															"description": "(Required) El ID único del entrenador"
 														}
 													]
-												}
+												},
+												"description": "Este endpoint da de baja a un entrenador."
 											},
 											"response": [
 												{
@@ -880,63 +835,7 @@
 									]
 								},
 								{
-									"name": "Trainers Controller find One",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/trainers/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"trainers",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "<string>",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"name": "Untitled Response",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{baseUrl}}/api/trainers/:id",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"trainers",
-														":id"
-													],
-													"variable": [
-														{
-															"key": "id"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "text",
-											"header": [],
-											"cookie": [],
-											"body": ""
-										}
-									]
-								},
-								{
-									"name": "Trainers Controller remove",
+									"name": "Eliminar un entrenador",
 									"request": {
 										"method": "DELETE",
 										"header": [],
@@ -954,10 +853,11 @@
 												{
 													"key": "id",
 													"value": "<number>",
-													"description": "(Required) "
+													"description": "(Required) El ID único del entrenador"
 												}
 											]
-										}
+										},
+										"description": "Este endpoint elimina un entrenador del sistema."
 									},
 									"response": [
 										{
@@ -994,7 +894,7 @@
 							]
 						},
 						{
-							"name": "Trainers Controller create",
+							"name": "Crear un nuevo entrenador",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1022,7 +922,8 @@
 										"api",
 										"trainers"
 									]
-								}
+								},
+								"description": "Este endpoint crea un nuevo entrenador en el sistema."
 							},
 							"response": [
 								{
@@ -1066,7 +967,7 @@
 							]
 						},
 						{
-							"name": "Trainers Controller find All",
+							"name": "Obtener todos los entrenadores",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -1079,7 +980,8 @@
 										"api",
 										"trainers"
 									]
-								}
+								},
+								"description": "Este endpoint devuelve una lista con todos los entrenadores registrados en el sistema."
 							},
 							"response": [
 								{

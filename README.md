@@ -15,7 +15,15 @@ docker-compose up --build
 ## Información
 - Cada aplicación se puede ejecutar independientemente siempre que se tenga tanto la bd como el rabittmq, y se establezcan las conexiones en los ficheros .env de cada carpeta. 
 
+- Para la fucionalidad del envío de notificaciones se ha usado la aplicación [resend.com](https://resend.com/emails), se introduce el email y la API Key que se genere al darte de alta (Gratis), en el fichero [.env](prueba-notifications/.env) del proyecto prueba-notifications
+  ```bash
+  # Resend email app
+  RESEND_EMAIL_APP_KEY="....."
+  RESEND_EMAIL_APP_EMAIL="....."
+  ```
+
 - Hay un script de pruebas en la carpeta [mysql/scripts](mysql/scripts/init.sql), para el caso de que se ejecute en local y no usando el contenedor y creando la base de datos: prueba_club
+
 
 - La aplicación una vez levantada, tiene accesible un swagger para testearla, en la siguiente url: /swagger-doc.json
   

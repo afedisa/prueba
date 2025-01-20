@@ -4,6 +4,7 @@ import { IsInt, Min } from 'class-validator';
 export class UpdateBudgetClubDto {
   @ApiProperty({
     description: 'Presupuesto del club',
+    example: 1000000,
     required: true,
   })
   @IsInt()
