@@ -25,6 +25,5 @@ RUN npm install --prod
 COPY --from=development /usr/src/app/dist ./dist 
  
 # Add an env to save ARG
-# ENV APP_MAIN_FILE=dist/${APP}/main 
-ENV APP_MAIN_FILE=dist/main 
+ENV APP_MAIN_FILE=dist/${APP_DIST}main 
 CMD node ${APP_MAIN_FILE}

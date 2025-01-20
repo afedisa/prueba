@@ -1,8 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { writeFileSync } from 'fs';
 
 const logger = new Logger(AppModule.name);
 async function bootstrap() {
@@ -21,11 +22,23 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, documentConfig);
   SwaggerModule.setup('/document', app, document, {
-    jsonDocumentUrl: '/document.json',
+    jsonDocumentUrl: '/swagger-doc.json',
   });
+  // Opción adicional: Guardar el archivo en el sistema
+  writeFileSync('./swagger-doc.json', JSON.stringify(document, null, 2));
+
   // * start
   app.enableCors();
-  console.log('server port PC', configService.get('SERVER_PORT'));
+  
+  // Activa la validación global
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // Elimina propiedades que no están definidas en el DTO
+      forbidNonWhitelisted: true, // Rechaza propiedades no definidas
+      transform: true, // Transforma los datos al tipo especificado en el DTO
+    }),
+  );
+
   await app.listen(configService.get('SERVER_PORT'));
 }
 bootstrap()

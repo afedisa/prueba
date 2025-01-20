@@ -5,6 +5,12 @@ import * as dotenv from 'dotenv';
 import { PlayersService } from './players.service';
 import { PlayersController } from './players.controller';
 import { PLAYERS_SERVICE } from 'src/constants/services';
+import { ClubEntity } from 'src/clubs/entities/club.entity';
+import { DatabaseModule, Database } from '@app/database';
+import { PlayerEntity } from './entities/player.entity';
+import { ClubsService } from 'src/clubs/clubs.service';
+import { ClubsController } from 'src/clubs/clubs.controller';
+import { TrainerEntity } from 'src/trainers/entities/trainer.entity';
 
 dotenv.config({ path: `./.env` });
 
@@ -24,11 +30,17 @@ dotenv.config({ path: `./.env` });
         },
       },
     ]),
+    DatabaseModule.register(Database.PRIMARY),
+    DatabaseModule.forEntity(Database.PRIMARY, [
+      ClubEntity,
+      PlayerEntity,
+      TrainerEntity,
+    ]),
     ConfigModule.forRoot({
       isGlobal: true,
     }),
   ],
   controllers: [PlayersController],
-  providers: [PlayersService],
+  providers: [ClubsService, PlayersService],
 })
 export class PlayersModule {}

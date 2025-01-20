@@ -1,0 +1,1063 @@
+{
+	"info": {
+		"_postman_id": "bdc28b33-44ba-4c29-a9e1-ed1276370eab",
+		"name": "Prueba Clubs",
+		"description": "Swagger API Documention",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1649650"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "clubs",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Actualizar presupuesto de un club",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"budget\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) El ID único del club"
+												}
+											]
+										},
+										"description": "Este endpoint actualiza el presupuesto de un club."
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"budget\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clubs/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clubs",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Obtener todos los clubes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/clubs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clubs"
+									]
+								},
+								"description": "Este endpoint devuelve una lista con todos los clubes registrados en el sistema."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Crear un nuevo club",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"budget\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/clubs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clubs"
+									]
+								},
+								"description": "Este endpoint crea un nuevo club en el sistema."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"budget\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clubs",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clubs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "players",
+					"item": [
+						{
+							"name": "{clubId}",
+							"item": [
+								{
+									"name": "{field}",
+									"item": [
+										{
+											"name": "{value}",
+											"item": [
+												{
+													"name": "Buscar jugadores por campo",
+													"request": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/players/:clubId/:field/:value",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"players",
+																":clubId",
+																":field",
+																":value"
+															],
+															"variable": [
+																{
+																	"key": "clubId",
+																	"value": "<number>",
+																	"description": "(Required) El ID único del club"
+																},
+																{
+																	"key": "field",
+																	"value": "<string>",
+																	"description": "(Required) Campo sobre el que se quiere hacer la búsqueda"
+																},
+																{
+																	"key": "value",
+																	"value": "<string>",
+																	"description": "(Required) El valor que se quiere buscar"
+																}
+															]
+														},
+														"description": "Este endpoint busca jugadores en un club, por un campo específico."
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/api/players/:clubId/:field/:value",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"players",
+																		":clubId",
+																		":field",
+																		":value"
+																	],
+																	"variable": [
+																		{
+																			"key": "clubId"
+																		},
+																		{
+																			"key": "field"
+																		},
+																		{
+																			"key": "value"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "start",
+									"item": [
+										{
+											"name": "Dar de alta a un jugador",
+											"request": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"club\": {},\n  \"salary\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/players/:id/start",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"players",
+														":id",
+														"start"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<number>",
+															"description": "(Required) El ID único del jugador"
+														}
+													]
+												},
+												"description": "Este endpoint da de alta a un jugador."
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"club\": {},\n  \"salary\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/players/:id/start",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"players",
+																":id",
+																"start"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "end",
+									"item": [
+										{
+											"name": "Dar de baja a un jugador",
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/players/:id/end",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"players",
+														":id",
+														"end"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<number>",
+															"description": "(Required) El ID único del jugador"
+														}
+													]
+												},
+												"description": "Este endpoint da de baja a un jugador."
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/players/:id/end",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"players",
+																":id",
+																"end"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Obtener un jugador",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/players/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"players",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<number>",
+													"description": "(Required) El ID único del jugador"
+												}
+											]
+										},
+										"description": "Este endpoint devuelve la información de un jugador en el sistema."
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/players/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"players",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Eliminar un jugador",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/players/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"players",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<number>",
+													"description": "(Required) El ID único del jugador"
+												}
+											]
+										},
+										"description": "Este endpoint elimina un jugador del sistema."
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/players/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"players",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Crear un nuevo jugador",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/players",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"players"
+									]
+								},
+								"description": "Este endpoint crea un nuevo jugador en el sistema."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/players",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"players"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trainers",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "start",
+									"item": [
+										{
+											"name": "Dar de alta a un entrenador",
+											"request": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"club\": {},\n  \"salary\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/trainers/:id/start",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"trainers",
+														":id",
+														"start"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<number>",
+															"description": "(Required) El ID único del entrenador"
+														}
+													]
+												},
+												"description": "Este endpoint da de alta a un entrenador."
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"club\": {},\n  \"salary\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/trainers/:id/start",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"trainers",
+																":id",
+																"start"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "end",
+									"item": [
+										{
+											"name": "Dar de baja a un entrenador",
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/trainers/:id/end",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"trainers",
+														":id",
+														"end"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<number>",
+															"description": "(Required) El ID único del entrenador"
+														}
+													]
+												},
+												"description": "Este endpoint da de baja a un entrenador."
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/trainers/:id/end",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"trainers",
+																":id",
+																"end"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Eliminar un entrenador",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/trainers/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"trainers",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<number>",
+													"description": "(Required) El ID único del entrenador"
+												}
+											]
+										},
+										"description": "Este endpoint elimina un entrenador del sistema."
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/trainers/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"trainers",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Crear un nuevo entrenador",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/trainers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"trainers"
+									]
+								},
+								"description": "Este endpoint crea un nuevo entrenador en el sistema."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/trainers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"trainers"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Obtener todos los entrenadores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/trainers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"trainers"
+									]
+								},
+								"description": "Este endpoint devuelve una lista con todos los entrenadores registrados en el sistema."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/trainers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"trainers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "App Controller get Hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
