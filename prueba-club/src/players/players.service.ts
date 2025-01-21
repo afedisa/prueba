@@ -24,6 +24,7 @@ export class PlayersService {
     private playersRepository: Repository<PlayerEntity>,
     private clubsService: ClubsService,
   ) {}
+
   async create(createPlayerDto: CreatePlayerDto) {
     return await this.playersRepository
       .save(createPlayerDto)
@@ -36,13 +37,28 @@ export class PlayersService {
       });
   }
 
-  async findAllByProperty(clubId: number, field: string, value: string) {
-    console.log('findAllByProperty', clubId, field, value);
-    return this.playersRepository
+  async findAllByProperty(
+    clubId: number,
+    field: string,
+    value: string,
+    page: number,
+    limit: number,
+  ) {
+    const offset = (page - 1) * limit;
+    const [result, total] = await this.playersRepository
       .createQueryBuilder('players')
       .where('players.club_id = :clubId', { clubId })
       .andWhere(`players.${field} = :value`, { value })
-      .getMany();
+      .skip(offset)
+      .take(limit)
+      .getManyAndCount();
+
+    return {
+      data: result,
+      total,
+      page,
+      lastPage: Math.ceil(total / limit),
+    };
   }
 
   findOne(id: number) {
