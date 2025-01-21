@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bdc28b33-44ba-4c29-a9e1-ed1276370eab",
+		"_postman_id": "9b38d78b-1479-4dc9-b600-931b414e7a57",
 		"name": "Prueba Clubs",
 		"description": "Swagger API Documention",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -241,7 +241,7 @@
 														"method": "GET",
 														"header": [],
 														"url": {
-															"raw": "{{baseUrl}}/api/players/:clubId/:field/:value",
+															"raw": "{{baseUrl}}/api/players/:clubId/:field/:value?page=<number>&limit=<number>",
 															"host": [
 																"{{baseUrl}}"
 															],
@@ -251,6 +251,18 @@
 																":clubId",
 																":field",
 																":value"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "<number>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "limit",
+																	"value": "<number>",
+																	"description": "(Required) "
+																}
 															],
 															"variable": [
 																{
@@ -279,7 +291,7 @@
 																"method": "GET",
 																"header": [],
 																"url": {
-																	"raw": "{{baseUrl}}/api/players/:clubId/:field/:value",
+																	"raw": "{{baseUrl}}/api/players/:clubId/:field/:value?page=<number>&limit=<number>",
 																	"host": [
 																		"{{baseUrl}}"
 																	],
@@ -289,6 +301,18 @@
 																		":clubId",
 																		":field",
 																		":value"
+																	],
+																	"query": [
+																		{
+																			"key": "page",
+																			"value": "<number>",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "limit",
+																			"value": "<number>",
+																			"description": "(Required) "
+																		}
 																	],
 																	"variable": [
 																		{

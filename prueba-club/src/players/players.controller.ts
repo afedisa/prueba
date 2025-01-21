@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { PlayersService } from './players.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
@@ -46,8 +47,16 @@ export class PlayersController {
     @Param('clubId') id: number,
     @Param('field') field: string,
     @Param('value') value: string,
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
   ) {
-    return this.playersService.findAllByProperty(+id, field, value);
+    return this.playersService.findAllByProperty(
+      +id,
+      field,
+      value,
+      page,
+      limit,
+    );
   }
 
   @Get(':id')
